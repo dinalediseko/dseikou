@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D'SEIKOU</title>
+    <link rel="icon" href="assets/favicon.png" type="image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="mediaqueries.css"/>
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Logo">
+      </div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Skills</a></li>
+          <li><a href="#projects">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+<!--
+          <li>
+            <a href="#">Games</a>
+            <ul class="games-sub-menu sub-menu">
+              <li><a href="./games/rps/rps.html">Rock Paper Scissors</a></li>
+              <li><a href="#">Form Validation</a></li>
+              <li><a href="#">Card Slider</a></li>
+              <li><a href="#">Complete Website</a></li>
+            </ul>
+          </li>
+-->
+
+        </ul>
+      </div>
+    </nav>      
+    <nav id="hamburger-nav">
+      <div class="logo">
+        <img src="assets/logo.png">
+      </div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    
+          <!--
+          <li>
+            <a href="./games/games.html" onclick="toggleMenu()">Games</a>
+            <i class='bx bxs-chevron-down games-arrow arrow'></i>
+            <ul class="games-sub-menu sub-menu">
+              <li><a href="./games/rps/rps.html">Rock Paper Scissors</a></li>
+              <li><a href="#">Form Validation</a></li>
+              <li><a href="#">Card Slider</a></li>
+              <li><a href="#">Complete Website</a></li>
+            </ul>
+          </li>
+          -->
+    
+        </div>
+      </div>
+    </nav>
+    <section href="#profile" id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="Didintle Naledi Diseko profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Didintle Naledi Diseko</h1>
+        <div class="section__text__p2">
+          <div class="typing-container">
+            <span class="auto-type"></span>
+          </div>
+        </div>
+        <div class="btn-container">
+          <button class="btn btn-color-2" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='https://api.whatsapp.com/send?phone=27818994791'">
+            Chat
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="data:image/png;base64,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"
+            alt="My Instagram profile" class="icon" onclick="location.href='https://instagram.com/dseikou_'" />
+          <img
+            src="data:image/png;base64,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"
+            alt="My LinkedIn profile" class="icon" onclick="location.href='https://linkedin.com/dinalediseko'" />
+        </div>
+        <div id="socials-container">
+          <a href="https://www.buymeacoffee.com/dseikou" target="_blank"><img
+              src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+              style="height: 60px !important;width: 217px !important;"></a>
+        </div>
+      </div>
+    </section>
+    <main>
+      
+      <div class="slider" style="
+          --width: 100px;
+          --height: 50px;
+          --quantity: 9;
+      ">
+          <div class="list">
+              <div class="item" style="--position: 2"><img src="assets/logo-slider/slider9.png" alt=""></div>
+              <div class="item" style="--position: 3"><img src="assets/logo-slider/slider8.png" alt=""></div>
+              <div class="item" style="--position: 4"><img src="assets/logo-slider/slider7.png" alt=""></div>
+              <div class="item" style="--position: 5"><img src="assets/logo-slider/slider6.png" alt=""></div>
+              <div class="item" style="--position: 6"><img src="assets/logo-slider/slider5.png" alt=""></div>
+              <div class="item" style="--position: 7"><img src="assets/logo-slider/slider4.png" alt=""></div>
+              <div class="item" style="--position: 8"><img src="assets/logo-slider/slider3.png" alt=""></div>
+              <div class="item" style="--position: 9"><img src="assets/logo-slider/slider2.png" alt=""></div>
+              <div class="item" style="--position: 10"><img src="assets/logo-slider/slider1.png" alt=""></div>
+              <div class="item" style="--position: 2"><img src="assets/logo-slider/slider10.png" alt=""></div>
+              <div class="item" style="--position: 2"><img src="assets/logo-slider/slider11.png" alt=""></div>
+              <div class="item" style="--position: 2"><img src="assets/logo-slider/slider12.png" alt=""></div>
+          </div>
+      </div>
+  
+<!--
+      <div class="slider" reverse="true" style="
+          --width: 500px;
+          --height: 500px;
+          --quantity: 9;
+      ">
+          <div class="list">
+              <div class="item" style="--position: 1"><img src="/creativedir/img/7B80D1AC-EAF5-45B7-9620-5BAB9875B7AE (1).jpg" alt=""></div>
+              <div class="item" style="--position: 2"><img src="/creativedir/img/2-DSC_0039.jpg" alt=""></div>
+              <div class="item" style="--position: 3"><img src="/creativedir/img/4-DSC_0018.jpg" alt=""></div>
+              <div class="item" style="--position: 4"><img src="/creativedir/img/6-DSC_0011.jpg" alt=""></div>
+              <div class="item" style="--position: 5"><img src="/creativedir/img/7-DSC_0007.jpg" alt=""></div>
+              <div class="item" style="--position: 6"><img src="/creativedir/img/Golf_.jpg" alt=""></div>
+              <div class="item" style="--position: 7"><img src="/creativedir/img/img1.jpg" alt=""></div>
+              <div class="item" style="--position: 8"><img src="/creativedir/img/Golf_.jpg" alt=""></div>
+              <div class="item" style="--position: 9"><img src="/creativedir/img/4-DSC_0018.jpg" alt=""></div>
+          </div>
+      </div>
+      -->
+  </main>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/about-pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="text-container">
+            <p>
+              You can call me Didi. My professional identity, D'SEIKOU,
+              is a fusion of my surname, Diseko, and the Japanese word
+              for success, 'seikou'. It reflects my core beliefs and who
+              I am at my essence. I spent three years studying towards a
+              diploma in Integrated Communication Design at the Tshwane
+              University of Technology, gaining hands-on experience in a
+              variety of creative disciplines. My time there equipped me
+              with a versatile skill set, spanning Interaction Design,
+              Information Design, Photography, Motion Design, and Marketing,
+              giving me a comprehensive understanding of the creative
+              industry. Driven by a passion for continuous growth, I
+              recently expanded my expertise into the realm of software
+              development, merging my design background with technical skills
+              to create innovative solutions.
+            </p>
+          </div>
+          <!--
+          <div class="about-containers">
+            <div class="wrapper">
+              <a href="./profile/profile.html" class="button">
+                <div class="icon">
+                  <img src="assets/username.png" alt="Profile">
+                </div>
+                <span>Profile</span>
+              </a>
+              <a href="./insights/insights.html" class="button">
+                <div class="icon">
+                  <img src="assets/idea.png" alt="Insights">
+                </div>
+                <span>Insights</span>
+              </a>
+            </div>    
+            -->        
+        </div>
+      </div>
+    </section>
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Skills</h1>
+      <div class="experience-grid">
+        <!-- SOFT SKILLS -->
+        <div class="container">
+          <h2 class="skills-heading">Soft Skills</h2>
+          <div class="skill-box">
+            <span class="title">Communication</span>
+            <div class="skill-bar">
+              <span class="skill-per ss1">
+                <span class="tooltip">90%</span>
+              </span>
+            </div>
+          </div>
+          <div class="skill-box">
+            <span class="title">Problem-Solving</span>
+            <div class="skill-bar">
+              <span class="skill-per ss2">
+                <span class="tooltip">90%</span>
+              </span>
+            </div>
+          </div>
+          <div class="skill-box">
+            <span class="title">Collaboration</span>
+            <div class="skill-bar">
+              <span class="skill-per ss3">
+                <span class="tooltip">80%</span>
+              </span>
+            </div>
+          </div>
+          <div class="skill-box">
+            <span class="title">Adaptability</span>
+            <div class="skill-bar">
+              <span class="skill-per ss4">
+                <span class="tooltip">95%</span>
+              </span>
+            </div>
+          </div>
+        </div>
+    
+        <!-- TECHNICAL SKILLS -->
+        <div class="container">
+          <h2 class="skills-heading">Technical Skills</h2>
+          <div class="skill-box">
+            <span class="title">Design Software Proficiency</span>
+            <div class="skill-bar">
+              <span class="skill-per ts1">
+                <span class="tooltip">95%</span>
+              </span>
+            </div>
+          </div>
+          <div class="skill-box">
+            <span class="title">UX/UI Design</span>
+            <div class="skill-bar">
+              <span class="skill-per ts2">
+                <span class="tooltip">70%</span>
+              </span>
+            </div>
+          </div>
+          <div class="skill-box">
+            <span class="title">Coding Skills</span>
+            <div class="skill-bar">
+              <span class="skill-per ts3">
+                <span class="tooltip">50%</span>
+              </span>
+            </div>
+          </div>
+          <div class="skill-box">
+            <span class="title">Project Management</span>
+            <div class="skill-bar">
+              <span class="skill-per ts4">
+                <span class="tooltip">80%</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!--
+    <h1 class="title">Highlights</h1>
+    <p class="section__text__p1">Notable Collaborations</p>
+    <div class="logos-wrapper">
+      <div class="item item1">
+        <img src="assets/logo-slider/amazon.png">
+      </div>
+      <div class="item item2">
+        <img src="assets/logo-slider/cot.png" alt="">
+      </div>
+      <div class="item item3">
+        <img src="assets/logo-slider/huawei.png" alt="">
+      </div>
+      <div class="item item4">
+        <img src="assets/logo-slider/lenovo.png" alt="">
+      </div>
+      <div class="item item5">
+        <img src="assets/logo-slider/ta.png" alt="">
+      </div>
+      <div class="item item6">
+        <img src="assets/logo-slider/tilt.png" alt="">
+      </div>
+      <div class="item item7">
+        <img src="assets/logo-slider/tw.png" alt="">
+      </div>
+      <div class="item item8">
+        <img src="assets/logo-slider/ycc.png" alt="">
+      </div>
+    </div>
+-->
+<section id="projects">
+  <p class="section__text__p1">The Actual Portfolio</p>
+  <h1 class="title">Projects</h1>
+  <div class="card-list">
+    <a href="creativedir/cd.html" class="card-item">
+      <img src="assets/cd.png" alt="Card Image">
+      <span class="creative-direction">Creative Direction</span>
+      <p>Turning ambitious concepts into reality, because who doesn’t love a little creative chaos?</p>
+      <div class="portfolio-arrow">
+        <i class="fas fa-arrow-right card-icon"></i>
+      </div>
+    </a>
+    <a href="designer/designer.html" class="card-item">
+      <img src="assets/designer.png" alt="Card Image">
+      <span class="designer">Designer</span>
+      <p>Turning the ordinary into the extraordinary, one pixel at a time.</p>
+      <div class="portfolio-arrow">
+        <i class="fas fa-arrow-right card-icon"></i>
+      </div>
+    </a>
+    <a href="developer/developer.html" class="card-item">
+      <img src="assets/developer.png" alt="Card Image">
+      <span class="developer">Developer</span>
+      <p>Transforming caffeine into functional code and minor miracles.</p>
+      <div class="portfolio-arrow">
+        <i class="fas fa-arrow-right card-icon"></i>
+      </div>
+    </a>
+  </div>
+</section>
+<!--
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Work</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-1.png"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project One</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-2.png"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Two</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-3.png"
+                alt="Project 3"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Three</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+    <main>
+      
+      <div class="slider" style="
+          --width: 100px;
+          --height: 50px;
+          --quantity: 9;
+      ">
+          <div class="list">
+              <div class="item" style="--position: 2"><img src="assets/logo-slider/slider9.png" alt=""></div>
+              <div class="item" style="--position: 3"><img src="assets/logo-slider/slider8.png" alt=""></div>
+              <div class="item" style="--position: 4"><img src="assets/logo-slider/slider7.png" alt=""></div>
+              <div class="item" style="--position: 5"><img src="assets/logo-slider/slider6.png" alt=""></div>
+              <div class="item" style="--position: 6"><img src="assets/logo-slider/slider5.png" alt=""></div>
+              <div class="item" style="--position: 7"><img src="assets/logo-slider/slider4.png" alt=""></div>
+              <div class="item" style="--position: 8"><img src="assets/logo-slider/slider3.png" alt=""></div>
+              <div class="item" style="--position: 9"><img src="assets/logo-slider/slider2.png" alt=""></div>
+              <div class="item" style="--position: 10"><img src="assets/logo-slider/slider1.png" alt=""></div>
+              <div class="item" style="--position: 2"><img src="assets/logo-slider/slider10.png" alt=""></div>
+              <div class="item" style="--position: 2"><img src="assets/logo-slider/slider11.png" alt=""></div>
+              <div class="item" style="--position: 2"><img src="assets/logo-slider/slider12.png" alt=""></div>
+          </div>
+      </div>
+  
+<!--
+      <div class="slider" reverse="true" style="
+          --width: 500px;
+          --height: 500px;
+          --quantity: 9;
+      ">
+          <div class="list">
+              <div class="item" style="--position: 1"><img src="/creativedir/img/7B80D1AC-EAF5-45B7-9620-5BAB9875B7AE (1).jpg" alt=""></div>
+              <div class="item" style="--position: 2"><img src="/creativedir/img/2-DSC_0039.jpg" alt=""></div>
+              <div class="item" style="--position: 3"><img src="/creativedir/img/4-DSC_0018.jpg" alt=""></div>
+              <div class="item" style="--position: 4"><img src="/creativedir/img/6-DSC_0011.jpg" alt=""></div>
+              <div class="item" style="--position: 5"><img src="/creativedir/img/7-DSC_0007.jpg" alt=""></div>
+              <div class="item" style="--position: 6"><img src="/creativedir/img/Golf_.jpg" alt=""></div>
+              <div class="item" style="--position: 7"><img src="/creativedir/img/img1.jpg" alt=""></div>
+              <div class="item" style="--position: 8"><img src="/creativedir/img/Golf_.jpg" alt=""></div>
+              <div class="item" style="--position: 9"><img src="/creativedir/img/4-DSC_0018.jpg" alt=""></div>
+          </div>
+      </div>
+      -->
+  </main>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:info@dseikou.co.za">info@dseikou.co.za</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/phone-call.png"
+            alt="Phone Call icon"
+            class="icon contact-icon"
+          />
+          <p><a href="tel:+27818994791">+27 81 899 4791</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/instagram.png"
+            alt="Instagram icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://instagram.com/dseikou_">@dseikou_</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://linkedin.com/dinalediseko">@dinalediseko</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="bmc">
+        <a href="https://www.buymeacoffee.com/dseikou" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+      </div>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Skills</a></li>
+            <li><a href="#projects">Portfolio</a></li>
+            <li><a href='https://api.whatsapp.com/send?phone=27818994791'>Chat</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 <a href="https://dseikou.co.za">D'SEIKOU</a>. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+      var typed = new Typed(".auto-type",{
+        strings : ["Designer", "Creative Director", "Developer"],
+        typeSpeed : 150,
+        backSpeed : 150,
+        loop : true
+      })
+    </script>  
+  </body>
+</html>
